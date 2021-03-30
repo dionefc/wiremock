@@ -6,6 +6,12 @@ IMAGE_LATEST=$(IMAGE):latest
 ECR_IMAGE="dionefc/${IMAGE}"
 ECR_IMAGE_VERSION="dionefc/${IMAGE_TAG}"
 
+test:
+	docker build --force-rm --compress --rm --file Dockerfile -t  $(IMAGE_LATEST) .
+	docker build --force-rm --compress --rm --file Dockerfile -t  $(IMAGE_TAG) .
+	docker tag $(IMAGE_LATEST) $(ECR_IMAGE):latest
+	docker tag $(IMAGE_TAG) $(ECR_IMAGE_VERSION)
+
 release:
 	docker build --force-rm --compress --rm --file Dockerfile -t  $(IMAGE_LATEST) .
 	docker build --force-rm --compress --rm --file Dockerfile -t  $(IMAGE_TAG) .

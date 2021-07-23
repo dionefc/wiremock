@@ -10,4 +10,4 @@ COPY health.json /usr/src/wiremock/mappings
 
 WORKDIR /usr/src/wiremock
 
-CMD ["java", "-cp", "wiremock-date-request-matching.jar:wiremock-standalone-2.26.0.jar", "com.github.tomakehurst.wiremock.standalone.WireMockServerRunner", "--global-response-templating", "--extensions", "github.dionefc.wiremock.extentions.matchers.QueryParamLocalDateMatcher" ]
+CMD ["java", "-cp", "wiremock-date-request-matching.jar:wiremock-standalone-2.26.0.jar", "com.github.tomakehurst.wiremock.standalone.WireMockServerRunner", "--global-response-templating", "--local-response-templating", "--extensions", "github.dionefc.wiremock.extentions.matchers.QueryParamLocalDateMatcher" ]
